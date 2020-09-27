@@ -67,12 +67,19 @@ d3.csv("data.csv", function(data) {
     var x = d3.scaleLinear()
       .domain([0, max]) 
       .range([0, width]);
-
+    // X axis: draw:
+    svg.append("g")
+    .attr("id", "x-axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+  
+    // Y axis: scale:
     var y = d3.scaleLinear()
       .range([height, 0]);
-    y.domain([0, histHeight ]);  
-
-
+    y.domain([0, histHeight ]);   
+    // Y axis: draw:
+    svg.append("g")
+      .call(d3.axisLeft(y)); 
 
   // Get a subset of the data based on the group
   function getFilteredData(data, group) {
@@ -82,16 +89,11 @@ d3.csv("data.csv", function(data) {
   // Helper function to add new points to our data
   function enterPoints(data) {
 
+
     var max = d3.max(data, function(d) { return +d.price })+ 200
     var x = d3.scaleLinear()
       .domain([0, max]) 
       .range([0, width]);
-
-    // X axis: draw:
-    svg.append("g")
-        .attr("id", "x-axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
     
     // set the parameters for the histogram
     var histogram = d3.histogram()
@@ -99,14 +101,7 @@ d3.csv("data.csv", function(data) {
     .domain(x.domain())  // then the domain of the graphic
     .thresholds(x.ticks(ticks)); // then the numbers of bins
 
-    var bins = histogram(data);  
-    // Y axis: scale:
-    var y = d3.scaleLinear()
-      .range([height, 0]);
-    y.domain([0, histHeight ]);   
-    // Y axis: draw:
-    svg.append("g")
-      .call(d3.axisLeft(y)); 
+    var bins = histogram(data);
 
 
     // append the bar rectangles to the svg element
@@ -120,6 +115,7 @@ d3.csv("data.csv", function(data) {
           .attr("height", function(d) { return height - y(d.length); })
           .style("fill", "grey")
 
+    // select all rect to initiate tooltip!
     d3.selectAll("rect")
         .on("mouseover", function(d) {
           // change the selection style
@@ -143,8 +139,8 @@ d3.csv("data.csv", function(data) {
           tooltip.style("visibility", "hidden");
         });
 
-
   }
+
 
   // Append a vertical line to highlight the separation
   function annotateLinesAndText(data) {
@@ -245,7 +241,20 @@ d3.csv("data.csv", function(data) {
 
   }
 
-  function exitPoints(bins, data) {
+  function exitPoints(data) {
+    var max = d3.max(data, function(d) { return +d.price })+ 200
+    var x = d3.scaleLinear()
+      .domain([0, max]) 
+      .range([0, width]);
+
+    // set the parameters for the histogram
+    var histogram = d3.histogram()
+    .value(function(d) { return d.price; })   // I need to give the vector of value
+    .domain(x.domain())  // then the domain of the graphic
+    .thresholds(x.ticks(ticks)); // then the numbers of bins
+
+    var bins = histogram(data);
+
     svg.selectAll("rect")
         .data(bins)
         .exit()
@@ -254,6 +263,8 @@ d3.csv("data.csv", function(data) {
 
   }
   function updatePoints(data) {
+
+
     // remove previous line
     svg.selectAll("line")
       .remove();
@@ -263,8 +274,7 @@ d3.csv("data.csv", function(data) {
       .domain([0, max]) 
       .range([0, width]);
 
-    //redraw x-axis
-    //svg.selectAll("#x-axis").call(d3.axisBottom(x));
+    
 
     // set the parameters for the histogram
     var histogram = d3.histogram()
@@ -281,31 +291,7 @@ d3.csv("data.csv", function(data) {
         .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
         .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
         .attr("height", function(d) { return height - y(d.length); })
-
-    d3.selectAll("rect")
-        .on("mouseover", function(d) {
-          console.log(d)
-          // change the selection style
-          d3.select(this)
-            .attr('stroke-width', '2')
-            .attr("stroke", "black");
-          // make the tooltip visible and update its text
-          tooltip
-            .style("visibility", "visible")
-            .text(`There were ${d.length} Airbnb listings \n between $${d.x0} and $${d.x1}.`);
-        })
-        .on("mousemove", function() {
-          tooltip
-            .style("top", d3.event.pageY - 10 + "px")
-            .style("left", d3.event.pageX + 10 + "px");
-        })
-        .on("mouseout", function() {
-          // change the selection style
-          d3.select(this).attr('stroke-width', '0');
-    
-          tooltip.style("visibility", "hidden");
-        });
-
+        
   }
 
 
