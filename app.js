@@ -43,7 +43,7 @@ d3.csv("data.csv", function(data) {
       //axis labels
       svg.append("text")
           .attr("class","axis-label")
-          .text("listing num.")
+          .text("number of listings")
           .attr("x", -30)
           .attr("y", -15)
 
@@ -111,9 +111,12 @@ d3.csv("data.csv", function(data) {
         .append("rect")
           .attr("x", 1)
           .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+          .transition()
+          .duration(2000)
           .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
           .attr("height", function(d) { return height - y(d.length); })
           .style("fill", "grey")
+
 
     // select all rect to initiate tooltip!
     d3.selectAll("rect")
@@ -139,101 +142,7 @@ d3.csv("data.csv", function(data) {
           tooltip.style("visibility", "hidden");
         });
 
-        d3.selectAll(".minerva-chart-label")
-        .style("visibility", "hidden");
-       d3.selectAll(".median-chart-label")
-        .style("visibility", "hidden");
  
- 
- 
-       function drawLineAnimated (value, colour) {
- 
-         svg.append("text")
-             .attr("class","median-chart-label")
-             .text("median")
-             .attr("x", x(value)+5)
-             .attr("y", height/5)
-             .style('fill', 'black')
-          svg.append("text")
-             .attr("class","median-chart-label")
-             .text("listing")
-             .attr("x",x(value)+5)
-             .attr("y", height/5+20)
-             .style('fill', 'black')
- 
-         
- 
-           svg.append("line")
-           .attr("x1", x(value) )
-           .attr("x2", x(value) )
-           .attr("y1", y(0))
-           .attr("y2", y(0))
-           .attr("stroke", colour)
-           .attr("stroke-width", "3") 
-           .on("mouseover", function() {
-             svg.append("text")
-                 .attr("class","line-label")
-                 .text(`$${value}`)
-                 .attr("x", x(value)-20)
-                 .attr("y", -15)
-                 .style('fill', 'black')
-         })
-         .on("mouseout", function() {
-             d3.selectAll(".line-label")
-                 .style("visibility", "hidden")
-         })
-           .transition()
-           .duration(300)
-           .attr("x1", x(value) )
-           .attr("x2", x(value) )
-           .attr("y1", y(0))
-           .attr("y2", y(histHeight))
-           
-       }
-       function drawLine (value, colour) {
-         svg.append("line")
-         .attr("stroke", colour)
-         .attr("stroke-width", "3") 
-         .attr("x1", x(value) )
-         .attr("x2", x(value) )
-         .attr("y1", y(0))
-         .attr("y2", y(histHeight))
-         .on("mouseover", function() {
-             svg.append("text")
-                 .attr("class","line-label")
-                 .text(`$${value}`)
-                 .attr("x", x(value)-20)
-                 .attr("y", -15)
-                 .style('fill', 'darkOrange')
-         })
-         .on("mouseout", function() {
-             d3.selectAll(".line-label")
-                 .style("visibility", "hidden")
-         });
-         svg.append("text")
-             .attr("class","minerva-chart-label")
-             .text("minerva ")
-             .attr("x", x(value))
-             .attr("y", height*1.1)
-             .style('fill', 'darkOrange')
-         svg.append("text")
-             .attr("class","minerva-chart-label")
-             .text("housing")
-             .attr("x", x(value))
-             .attr("y", height*1.15)
-             .style('fill', 'darkOrange')
- 
-       }
- 
-       drawLine(minervaCost, "darkOrange") 
- 
-       //median line
-       var median = d3.median(data, d => d.price)
-       drawLineAnimated(median, "black") 
- 
- 
- 
-
   }
 
 
@@ -288,6 +197,109 @@ d3.csv("data.csv", function(data) {
         .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
         .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
         .attr("height", function(d) { return height - y(d.length); })
+
+        d3.selectAll(".minerva-chart-label")
+        .style("visibility", "hidden");
+       d3.selectAll(".median-chart-label")
+        .style("visibility", "hidden");
+ 
+ 
+ 
+    function drawLineMedian (value, colour) {
+        svg.append("text")
+            .attr("class","median-chart-label")
+            .text("median")
+            .attr("x", x(value)-20)
+            .attr("y", height+50)
+            .style('fill', 'black')
+        svg.append("text")
+            .attr("class","median-chart-label")
+            .text("airbnb")
+            .attr("x",x(value)-20)
+            .attr("y", height+80)
+            .style('fill', 'black')
+        svg.append("text")
+            .attr("class","median-chart-label")
+            .text("listing")
+            .attr("x",x(value)-20)
+            .attr("y", height+110)
+            .style('fill', 'black')
+
+          svg.append("line")
+          .attr("x1", x(value) )
+          .attr("x2", x(value) )
+          .attr("y1", y(0))
+          .attr("y2", y(0))
+          .attr("stroke", colour)
+          .attr("stroke-width", "3") 
+          .on("mouseover", function() {
+            svg.append("text")
+                .attr("class","line-label")
+                .text(`$${value}`)
+                .attr("x", x(value)-20)
+                .attr("y", -15)
+                .style('fill', 'black')
+          })
+         .on("mouseout", function() {
+             d3.selectAll(".line-label")
+                 .style("visibility", "hidden")
+           })
+           .transition()
+           .duration(300)
+           .attr("x1", x(value) )
+           .attr("x2", x(value) )
+           .attr("y1", y(0))
+           .attr("y2", y(histHeight))
+           
+      }
+      function drawLineMinerva (value, colour) {
+         svg.append("line")
+         .attr("stroke", colour)
+         .attr("stroke-width", "3") 
+         .attr("x1", x(value) )
+         .attr("x2", x(value) )
+         .attr("y1", y(0))
+         .attr("y2", y(0))
+         .on("mouseover", function() {
+             svg.append("text")
+                 .attr("class","line-label")
+                 .text(`$${value}`)
+                 .attr("x", x(value)-20)
+                 .attr("y", -15)
+                 .style('fill', 'darkOrange')
+         })
+         .on("mouseout", function() {
+             d3.selectAll(".line-label")
+                 .style("visibility", "hidden")
+         })
+         .transition()
+         .duration(300)
+         .attr("x1", x(value) )
+         .attr("x2", x(value) )
+         .attr("y1", y(0))
+         .attr("y2", y(histHeight))
+         ;
+         svg.append("text")
+             .attr("class","minerva-chart-label")
+             .text("minerva ")
+             .attr("x", x(value)-20)
+             .attr("y", height+65)
+             .style('fill', 'darkOrange')
+         svg.append("text")
+             .attr("class","minerva-chart-label")
+             .text("housing")
+             .attr("x", x(value)-20)
+             .attr("y", height+95)
+             .style('fill', 'darkOrange')
+ 
+       }
+ 
+       drawLineMinerva(minervaCost, "darkOrange") 
+ 
+       //median line
+       var median = d3.median(data, d => d.price)
+       drawLineMedian(median, "black") 
+ 
         
   }
 
@@ -344,7 +356,6 @@ d3.csv("data.csv", function(data) {
       }
       else {
           updatePoints(groupData);
-          enterPoints(groupData);
           exitPoints(groupData);
       }
   }
@@ -369,7 +380,7 @@ d3.csv("data.csv", function(data) {
       scroller
         .setup({
           step: "#scrolly article .step", // the step elements
-          offset: 0.7, // set the trigger to be 1/2 way down screen
+          offset: 0.3, // set the trigger to be 1/2 way down screen
           //debug: true, // display the trigger offset for testing
         })
         .onStepEnter(handleStepEnter)
