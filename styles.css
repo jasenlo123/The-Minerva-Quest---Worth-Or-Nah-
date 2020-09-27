@@ -1,0 +1,94 @@
+body {
+  font-family:  "Segoe UI Emoji", Helvetica, Arial, sans-serif, "Apple   Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+}
+#scrolly {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3rem;
+}
+
+#scrolly > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+article {
+  position: relative;
+  padding: 0 1rem;
+  max-width: 20rem;
+}
+
+figure {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 60%;
+  margin: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 0;
+}
+
+figure p {
+  padding: 1rem;
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color:black;
+}
+
+.step {
+  margin: 0 auto 2rem auto;
+/*   background-color: #3b3b3b;
+ */  color:black;
+}
+
+.step-img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step.is-active {
+/*   background-color: goldenrod;
+  color: #3b3b3b; */
+}
+
+.step h4{
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.step p{
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.svg-tooltip {
+  font-family:  "Segoe UI Emoji", Helvetica, Arial, sans-serif, "Apple   Color Emoji","Segoe UI Symbol";
+  background: rgba(69,77,93,.9);
+  border-radius: .1rem;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  max-width: 320px;
+  padding: .2rem .4rem;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: pre;
+  z-index: 300;
+  visibility: hidden;
+}
+
