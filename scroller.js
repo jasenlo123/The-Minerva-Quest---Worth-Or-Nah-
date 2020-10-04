@@ -1,8 +1,8 @@
 
 // set the dimensions and margins of the graph
-var margin = {top: 50, right: 50, bottom: 300, left: 50},
-    width = window.innerWidth*0.7 - margin.left - margin.right,
-    height = window.innerHeight - margin.top - margin.bottom;
+var margin = {top: 100, right: 100, bottom: 300, left: 50},
+width = window.innerWidth*0.7 - margin.left - margin.right,
+height = window.innerHeight - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("figure")
@@ -17,7 +17,8 @@ var svg = d3.select("figure")
 const ticks = 15
 const minervaCost = 750
 const minervaCostPlus = 1375
-const histHeight = 90
+const histHeight = 100
+const histColour = "#fed8b1"
 const cities = ["San Francisco",
                 "San Francisco",
                 "Seoul", 
@@ -29,7 +30,7 @@ const cities = ["San Francisco",
 
 
 // get the data
-d3.csv("data.csv", function(data) {
+d3.csv("prices_data.csv", function(data) {
 
   const tooltip = d3
   .select("main")
@@ -38,32 +39,38 @@ d3.csv("data.csv", function(data) {
       .style("position", "absolute")
       .style("visibility", "hidden");
 
-    
+  //axis labels
   function initiateAxisLabels () {
-      //axis labels
+      //y-axis
       svg.append("text")
           .attr("class","axis-label")
-          .text("number of listings")
+          .text("number of")
+          .attr("x", -30)
+          .attr("y", -30)
+      svg.append("text")
+          .attr("class","axis-label")
+          .text("listings")
           .attr("x", -30)
           .attr("y", -15)
 
+      //x-axis
       svg.append("text")
           .attr("class","axis-label")
           .text("rent/month")
           .attr("x", width-100)
-          .attr("y", height*1.1)
+          .attr("y", height+40)
       svg.append("text")
           .attr("class","axis-label")
           .text("(in usd)")
           .attr("x", width-100)
-          .attr("y", height*1.15)
+          .attr("y", height+55)
 
   }
   initiateAxisLabels()
 
 
     // X axis: scale:
-    var max = d3.max(data, function(d) { return +d.price })+ 200
+    var max = d3.max(data, function(d) { return +d.price })
     var x = d3.scaleLinear()
       .domain([0, max]) 
       .range([0, width]);
@@ -112,19 +119,26 @@ d3.csv("data.csv", function(data) {
           .attr("x", 1)
           .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
           .transition()
-          .duration(2000)
+          .duration(500)
           .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
           .attr("height", function(d) { return height - y(d.length); })
-          .style("fill", "grey")
+          .style("fill", "white")
+          .style("stroke", "darkOrange" )
+          .style('stroke-width', '1')
+
 
 
     // select all rect to initiate tooltip!
-    d3.selectAll("rect")
+    function initiateToolTip () {
+        d3.selectAll("rect")
         .on("mouseover", function(d) {
           // change the selection style
           d3.select(this)
-            .attr('stroke-width', '2')
-            .attr("stroke", "black");
+           .transition()
+           .duration(200)
+            .style("fill", "white")
+            .style("stroke", histColour)
+            .style('stroke-width', '2');
           // make the tooltip visible and update its text
           tooltip
             .style("visibility", "visible")
@@ -132,23 +146,29 @@ d3.csv("data.csv", function(data) {
         })
         .on("mousemove", function() {
           tooltip
-            .style("top", d3.event.pageY - 10 + "px")
+            .style("top", d3.event.pageY - 50 + "px")
             .style("left", d3.event.pageX + 10 + "px");
         })
         .on("mouseout", function() {
           // change the selection style
-          d3.select(this).attr('stroke-width', '0');
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .style('stroke-width', '1')
+            .style("stroke", "white")
+            .style("fill", histColour);
     
           tooltip.style("visibility", "hidden");
         });
+    }
+    initiateToolTip ();
+
 
  
   }
 
-
-  
-
   function exitPoints(data) {
+
     var max = d3.max(data, function(d) { return +d.price })+ 200
     var x = d3.scaleLinear()
       .domain([0, max]) 
@@ -171,8 +191,9 @@ d3.csv("data.csv", function(data) {
   }
   function updatePoints(data) {
     // remove previous line
-    svg.selectAll("line")
-      .remove();
+       svg.selectAll("line").remove();
+      svg.selectAll(".scroller_anno").remove();
+
 
     var max = d3.max(data, function(d) { return +d.price })+ 200
     var x = d3.scaleLinear()
@@ -197,12 +218,17 @@ d3.csv("data.csv", function(data) {
         .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
         .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
         .attr("height", function(d) { return height - y(d.length); })
+        .style("fill", histColour )
+        .style("stroke", "white")
+        .style('stroke-width', '1')
 
-        d3.selectAll(".minerva-chart-label")
-        .style("visibility", "hidden");
-       d3.selectAll(".median-chart-label")
-        .style("visibility", "hidden");
- 
+
+      d3.selectAll(".minerva-chart-label")
+          .style("visibility", "hidden");
+        d3.selectAll(".median-chart-label")
+          .style("visibility", "hidden");
+
+    
  
  
     function drawLineMedian (value, colour) {
@@ -232,53 +258,36 @@ d3.csv("data.csv", function(data) {
           .attr("y2", y(0))
           .attr("stroke", colour)
           .attr("stroke-width", "3") 
-          .on("mouseover", function() {
-            svg.append("text")
-                .attr("class","line-label")
-                .text(`$${value}`)
-                .attr("x", x(value)-20)
-                .attr("y", -15)
-                .style('fill', 'black')
-          })
-         .on("mouseout", function() {
-             d3.selectAll(".line-label")
-                 .style("visibility", "hidden")
-           })
            .transition()
            .duration(300)
            .attr("x1", x(value) )
            .attr("x2", x(value) )
            .attr("y1", y(0))
            .attr("y2", y(histHeight))
+        
+        svg.append("text")
+           .attr("class","line-label")
+           .text(`$${value}`)
+           .attr("x", x(value)-20)
+           .attr("y", -15)
+           .style('fill', 'black')
            
       }
-      function drawLineMinerva (value, colour) {
+    function drawLineMinerva (value, colour) {
          svg.append("line")
-         .attr("stroke", colour)
-         .attr("stroke-width", "3") 
-         .attr("x1", x(value) )
-         .attr("x2", x(value) )
-         .attr("y1", y(0))
-         .attr("y2", y(0))
-         .on("mouseover", function() {
-             svg.append("text")
-                 .attr("class","line-label")
-                 .text(`$${value}`)
-                 .attr("x", x(value)-20)
-                 .attr("y", -15)
-                 .style('fill', 'darkOrange')
-         })
-         .on("mouseout", function() {
-             d3.selectAll(".line-label")
-                 .style("visibility", "hidden")
-         })
-         .transition()
-         .duration(300)
-         .attr("x1", x(value) )
-         .attr("x2", x(value) )
-         .attr("y1", y(0))
-         .attr("y2", y(histHeight))
-         ;
+            .attr("stroke", colour)
+            .attr("stroke-width", "3") 
+            .attr("x1", x(value) )
+            .attr("x2", x(value) )
+            .attr("y1", y(0))
+            .attr("y2", y(0))
+            .transition()
+            .duration(300)
+            .attr("x1", x(value) )
+            .attr("x2", x(value) )
+            .attr("y1", y(0))
+            .attr("y2", y(histHeight))
+            ;
          svg.append("text")
              .attr("class","minerva-chart-label")
              .text("minerva ")
@@ -291,17 +300,62 @@ d3.csv("data.csv", function(data) {
              .attr("x", x(value)-20)
              .attr("y", height+95)
              .style('fill', 'darkOrange')
+
+          svg.append("text")
+             .attr("class","line-label")
+             .text(`$${value}`)
+             .attr("x", x(value)-20)
+             .attr("y", -15)
+             .style('fill', 'darkOrange')
  
-       }
- 
+    }
+       d3.selectAll(".line-label")
+           .style("visibility", "hidden")
        drawLineMinerva(minervaCost, "darkOrange") 
- 
        //median line
        var median = d3.median(data, d => d.price)
        drawLineMedian(median, "black") 
  
-        
-  }
+
+    function calculateProportionCheaper(data) {
+        var entries = data.length
+
+        var cheaper = data.filter(function(cost) { return cost.price < 750; }).length
+
+        svg.append("text")
+        .text(`${cheaper} / ${entries} (${Math.round((cheaper/entries)*100)}%)`)
+        .attr("class", "scroller_anno")
+        .attr("font-weight", 1000)
+        .attr("x", width-150)
+        .attr("y", height -250)
+        .attr("fill", "darkOrange")
+
+
+        svg.append("text")
+        .text(`listings scraped`)
+        .attr("class", "scroller_anno")
+        .attr("x", width-150)
+        .attr("y", height -230)
+
+
+        svg.append("text")
+        .text(`were cheaper `)
+        .attr("class", "scroller_anno")
+        .attr("x", width-150)
+        .attr("y", height -210)
+
+
+        svg.append("text")
+        .text(`than Minerva`)
+        .attr("class", "scroller_anno")
+        .attr("x", width-150)
+        .attr("y", height -190)
+
+      }
+      calculateProportionCheaper(data)
+    }
+    
+  
 
 
   // using d3 for convenience, and storing a selected elements
@@ -318,7 +372,7 @@ d3.csv("data.csv", function(data) {
   function handleResize() {
 
       // 1. update height of step elements
-      var stepH = Math.floor(window.innerHeight * 0.75);
+      var stepH = Math.floor(window.innerHeight * 0.85);
 
       step.style("height", stepH + "px");
       
@@ -351,7 +405,7 @@ d3.csv("data.csv", function(data) {
       var $groupSelector = cities[response.index]
       var groupData = getFilteredData(data, $groupSelector);
 
-      if (response.index == 0) {
+      if (response.index == 0 && response.direction == "down") {
            enterPoints(groupData);
       }
       else {
@@ -380,7 +434,7 @@ d3.csv("data.csv", function(data) {
       scroller
         .setup({
           step: "#scrolly article .step", // the step elements
-          offset: 0.3, // set the trigger to be 1/2 way down screen
+          offset: 0.5, // set the trigger to be 1/2 way down screen
           //debug: true, // display the trigger offset for testing
         })
         .onStepEnter(handleStepEnter)
@@ -392,8 +446,6 @@ d3.csv("data.csv", function(data) {
 
   // start it up
   init();
-
-
 
 
 

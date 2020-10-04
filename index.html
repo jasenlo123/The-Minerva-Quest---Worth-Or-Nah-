@@ -3,34 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Housing @ Minerva...Worth?</title>
+  <title>Housing @ Minerva...Worth? </title>
   <link href="styles.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 
     <!-- load the d3.js library -->    	
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
 
 
 
 </head>
 <body>
+  <a href= "https://www.minervaquest.com/" target="blank"><img class = "banner" src="assets/quest.png"  alt="quest banner"></a>
+  <img class="hero" src="assets/house.gif" alt="house animation">
 
-  <h1 style="margin: 20rem;">Minus totam sit incidunt.</h1>
+  <h1>Housing at Minerva... <br> Worth or Nah?</h1>
 
-  <section style="margin: 20rem;">
-    Sed aliquam ea est qui provident aperiam. Fugiat ut est tempore. Voluptatibus velit quia dolor deleniti. Iure rerum consequatur rem aspernatur.
-  <br>
-    Aperiam officiis enim minima minima et quae. Inventore et alias quam aut iste. Omnis asperiores laboriosam quibusdam dolore unde nostrum. Et rerum inventore.
- <br>
-    Omnis cum vel voluptas doloribus hic recusandae nihil consequatur. Quia consequatur qui vel quas. Mollitia non error harum quaerat quo corporis officia vero illo. Ea dignissimos quod. Magnam qui consequatur et rem minima consequatur ut magnam molestiae.
-    <br>
-    Sed aliquam ea est qui provident aperiam. Fugiat ut est tempore. Voluptatibus velit quia dolor deleniti. Iure rerum consequatur rem aspernatur.
-    <br>
-    Aperiam officiis enim minima minima et quae. Inventore et alias quam aut iste. Omnis asperiores laboriosam quibusdam dolore unde nostrum. Et rerum inventore.
-    <br>
-    Omnis cum vel voluptas doloribus hic recusandae nihil consequatur. Quia consequatur qui vel quas. Mollitia non error harum quaerat quo corporis officia vero illo. Ea dignissimos quod. Magnam qui consequatur et rem minima consequatur ut magnam molestiae.
+
+  <h3 > A <span>data-driven investigation</span> on whether or not <span>housing costs at Minerva </span>are worth it. <br> Is it possible for students to <span>pay less</span> and <span> live better</span>?</h3>
+
+
+  <p style="text-align: center;margin: 2rem 0 0 0">a data viz by Jasen Lo m21 </p>
+  <p style="text-align: center;margin: 0 0 0 0"> Published: 10/10/2020 </p>
+  <hr>
+
+  <section style="margin: 3rem 15rem ;">
+
+    <h3 style="text-align: left; font-style: italic; margin: 0rem 2rem;">
+    tldr: Using Airbnb listings as a proxy for the availability and cost of independent housing in all of the rotation cities, the Quest found an abundance of Airbnb listings, with the exception of San Francisco, that are not only cheaper than Minerva housing but even equipped with additional ameneties. Minerva residential fees are more expensive than the renting the median Airbnb listing in Seoul, Hyderabad, Buenos Aires, and Taipei, but cheaper in Berlin, London, and San Franisco. However, unseen potential costs associated with living in independent housing include social estrangement from fellow classmates, risks and shortcomings of arranging housing independently, and mandatory loss of work study income. Regardless, this investigation finds that given the current Minerva residential fees and policies, as well as the potential cost-saving benefits of living independently, a student in the right circumstances could consider doing so. 
+    </h3>
+
+    <br> <br>
+
+
+    <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An <a href="https://www.mastersportal.com/articles/1629/student-living-costs-in-the-usa-budgeting-for-an-international-degree-in-2020.html">article</a> published last month provided average annual room and board estimates at <span>$9,800 at public four-year colleges </span> and <span>$11,100 at private four-year colleges</span>. The article's author did not cite their sources or their estimation methodology, so these estimates are to believed with some degree of reservation. Still, it seems that Minerva's residential service cost of $11,000 are right about the average for a private four-year undergraduate program. However, Minerva's residential service cost pays for much more than just accomodations. According to Minerva's Student Services Global Director Marianna Panossi, the residential services fee is inclusive of services such as "technology, facilities for outside events, and importantly most on-ground staff who serve the needs of all students, helping them to access local health care/insurance, supporting wellness, assisting with local visas and residential permits, emergencies." 
+    </p>
+
+    <img class = "banner" src="assets/costs.png" alt="cost">
+    <p class = "caption">The estimated cost of attending Minerva per academic year in 2020/21. Note the 'residential services' cost of $11,000.</p>
+
+    <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thus, the true cost of housing at Minerva exclusive of other services, can be derived by substracting the 'Independent Housing Fees' of $5,000 ($2,500 per semester) from the annual residential cost of $11,000. <span>This amount comes up to $6,000 per academic year, which compares favourably to housing costs at a typical four-year undergraduate program in the United States.</span> Minerva's <a href="https://www.minerva.kgi.edu/tuition-aid/tuition-fees/" target="_blank">committment</a> to "reducing the cost to attend a top-tier university program" is one major factor why students have decided to enroll at Minerva. However, is it fair to compare the housing costs at Minerva to American undergraduate programs given how Minervans only reside in the United States for one year? 
+   </p>
+
+    <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M21 student Tessa Owens published an <a href="https://www.minervaquest.com/2020/04/09/how-i-saved-money-at-minerva-despite-having-0-financial-aid/">article</a> on how she saved money at Minerva without financial aid in <span style="font-style: italic;"> The Minerva Quest</span> recently. Owens listed living "in independent housing in Seoul & Buenos Aires" as one of the ways she managed to save money. <span>In those cities, she found housing through AirBnb and saved about $300 each semester, amounting to approximately $75 per month.</span> Owen's experience with saving money through renting with Airbnb begs the question: could students viably take advantage of cheaper accomodation rates in Minerva rotation cities? Owen's experience suggests that Buenos Aires and Seoul are candidate cities where independent housing is generally cheaper compared to Minerva housing. But how much cheaper? And what do the housing conditions look like in these accomodations? And what about the other cities on the global rotation? 
+    </p>
+    
+    
+    <hr>
+    <h3>Methodology</h3>
+
+    <p>
+    <span style="font-style: italic;"> The Minerva Quest</span> scraped Airbnb listings in San Francisco, Seoul, Hyderabad, Berlin, Buenos Aires, London and Taipei. 
+
+    </p>
+
 
   </section>
 
@@ -40,70 +75,173 @@
       
         <!--   actual graphic/chart   -->
     <figure>
-      <h3 style="text-align: center;">Histogram of Airbnb Listing Rent Prices at Minerva Rotation Cities</h3>
+      <h2 style="text-align: center;">Histogram of Airbnb Listing Rent Prices at Minerva Rotation Cities</h2>
     </figure>
 
 
     <!--  step/text container  -->
     <article>
       <div class='step'>
+        <br>
+        <img class = 'step-img'src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="san francisco">
         <h4>San Francisco</h4>
-        <img class = 'step-img'src="https://hub.minerva.kgi.edu/wp-content/uploads/2019/05/joseph-barrientos-49318-unsplash_Easy-Resize.com_.jpg" alt="san francisco">
+        <span>This is the distribution of the Airbnb listings that were found in San Francisco using the web scraping methodology described above. Hover over each bar to investigate individual histogram bins! 
+        </span>
+        <br><br><br>
 
-
+        <span>Scroll down to see how the price of Minerva's housing in San Francisco compares to the Airbnb listings in the city!
+        </span>
+        
       </div>
-
       <div class='step'>
-        <p>blablabla</p>
+        <br>
+        <br>
+        <br>     
+        <br>
+        <span>The median Airbnb listing costs approximately $1600 per month, which is more than twice the rent Minervans pay for housing in San Francisco!
+        </span>
+        <br>
+        <br>
+        <br>
+        <span>San Francisco sure is expensive. This should really come to no surprise to anyone who has witnessed the consequences of San Francisco's extreme housing costs. Living in Minerva's residence hall would most definately save students lots of moneys compared to living independently in San Francisco, provided there are spots in the residence available.
+        </span>
+        <br>
+        <br>
+        <br>
+        <span>
+        Let's move along the global rotation and see how the other cities stack up against Minerva housing...
+        </span>
+        <br>
+        <br>
+        <br>
+        <hr>
       </div>
       <div class='step'>
+        <img class = 'step-img'src="assets/seoul.jpg" alt="seoul">
         <h4>Seoul</h4>
-        <img class = 'step-img'src="seoul.jpg" alt="seoul">
+        <span>
+        The distribution of listing costs match up with Owens' reported experience with saving $75/month in Seoul living in independent housing. 
+        </span>
+        <br>
+        <br>
+        <br>
+        <span>
+        There are 184 Seoul listings that cost between $200 to $600/month, which suggests that students in the same position as Owens could seriously look into living independently in Seoul.
+        </span>
+        <br>
+        <br>
+        <br>
+        <hr>
       </div>
       <div class='step' >
+        <img class = 'step-img'src="https://images.unsplash.com/photo-1470075446540-4391a96ec621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="Hyderabad">
         <h4>Hyderabad</h4>
+        <span>
+          Small(er) sample warning! Hyderabad has only 126 listings found, half as many listings as the other cities do. There are fewer hosts in Hyderabad, raising a potential downside of arranging housing by oneself: few options might lead to bad housing experiences and unreliable hosts. 
+          </span>
+          <br>
+          <br>
+          <br>
+          <span>
+          This article tackles this question using helpful Airbnb ratings in a data viz below. Yes,  <span style="font-style: italic; font-weight: bold;"> The Quest </span> scraped all that data too!
+          </span>
+          <br>
+          <br>
+          <br>
+          <hr>
+
       </div>
       <div class='step'>
+        <img class = 'step-img'src="https://images.unsplash.com/photo-1552553302-9211bf7f7053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="Berlin">
         <h4>Berlin</h4>
+        <span>
+          Note the shifting x-axis. The seemingly small distance between the median and Minerva cost lines denote a $200/month difference.
+          </span>
+          <br>
+          <br>
+          <br>
+          <span>
+          As opposed to Seoul and Hyderabad, Minerva housing is relatively more affordable than most of the listings in Berlin, assuming that Berlinovo feels generous enough not to charge you the $800/semester difference in mysterious damages.
+          </span>
+          <br>
+          <br>
+          <br>
+          <hr>
       </div>
       <div class='step'>
+        <img class = 'step-img'src="https://images.unsplash.com/photo-1528392175875-4ce3ab32663c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80" alt="Buenos Aires">
         <h4>Buenos Aires</h4>
+        <span>
+          While Buenos Aires was likely affordable in good times, this scraped data is reflective of the combined effects of a weak currency orignating from an ongoing financial crisis and the effects of the Covid-19 pandemic.
+          </span>
+          <br>
+          <br>
+          <br>
+          <span>
+          Still, it is astounding to observe how cheap it is to live in Buenoes Aires as a foreign student, which gives some indication of the magnitude of the various crises in Argentina.
+          </span>
+          <br>
+          <br>
+          <br>
+          <hr>
+
       </div>
       <div class='step'>
+        <img class = 'step-img'src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="London">
         <h4>London</h4>
+        <span>
+          London's distribution is not unlike that of Berlin, except with a narrow peak of 78 listings concentrated around $800 - $1000/month. As a result, the proportion of listings that were found in London that are cheaper than Minerva housing is only 21%.
+          </span>
+          <br>
+          <br>
+          <br>
+          <span>
+          Given London's reputation as an expensive city to live in, it is surprising to find how London and Berlin are not dissimilar when it comes to housing costs, and how much more affordable London is compared to San Francisco.
+            </span>
+            <br>
+            <br>
+            <br>
+          <hr>
       </div>
       <div class='step'>
+        <img class = 'step-img'src="https://hub.minerva.kgi.edu/wp-content/uploads/2019/06/thomas-tucker-116179-unsplash_Easy-Resize.com_.jpg" alt="taipei">
         <h4>Taipei</h4>
+        <span>
+          Even though the majority of Airbnb listings found in Taipei cost less than Minerva's housing option, it must be noted that at the time of writing, Minerva students are not allowed to live independently in Taipei due to coronavirus transmission mitigation. 
+          </span>
+          <br>
+          <br>
+          <br>
+          <span>
+            Rent prices have plummeted due to the the ongoing pandemic and associated restrictions to travel or tourism. With the current policy, students are not be able to take advantage of reduced rent prices. 
+          </span>
+            <br>
+            <br>
+            <br>
+          <hr>
       </div>
     </article>
 
 
   </section>
 
-  <section style="margin: 20rem;">
-    Sed aliquam ea est qui provident aperiam. Fugiat ut est tempore. Voluptatibus velit quia dolor deleniti. Iure rerum consequatur rem aspernatur.
-  <br>
-    Aperiam officiis enim minima minima et quae. Inventore et alias quam aut iste. Omnis asperiores laboriosam quibusdam dolore unde nostrum. Et rerum inventore.
- <br>
-    Omnis cum vel voluptas doloribus hic recusandae nihil consequatur. Quia consequatur qui vel quas. Mollitia non error harum quaerat quo corporis officia vero illo. Ea dignissimos quod. Magnam qui consequatur et rem minima consequatur ut magnam molestiae.
-    <br>
-    Sed aliquam ea est qui provident aperiam. Fugiat ut est tempore. Voluptatibus velit quia dolor deleniti. Iure rerum consequatur rem aspernatur.
-    <br>
-    Aperiam officiis enim minima minima et quae. Inventore et alias quam aut iste. Omnis asperiores laboriosam quibusdam dolore unde nostrum. Et rerum inventore.
-    <br>
-    Omnis cum vel voluptas doloribus hic recusandae nihil consequatur. Quia consequatur qui vel quas. Mollitia non error harum quaerat quo corporis officia vero illo. Ea dignissimos quod. Magnam qui consequatur et rem minima consequatur ut magnam molestiae.
+  <section style="margin: 3rem 15rem ;">
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An additional caveat to this line of questioning is that Minerva's financial policy dictates that students on work-study would lose their financial aid should they choose to live outside of the residence hall. As such, only students who are not on work-study have the choice between independent housing and Minerva's residence hall. However, if there are cities with housing that is much more affordable than the housing offered by Minerva, is there a point to which a student could viably forfeit their work-study in certain cities should the opportunity arise?
+    </p>
 
   </section>
 
 
 
-  <section id="my_dataviz"> </section>  
+  <svg id = "scatter"></svg>
+
 
 
 </main>
 
-
-  <script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="scatter.js"></script>
+  <script type="text/javascript" src="scroller.js"></script>
 </body>
 
 
