@@ -1,7 +1,9 @@
 body {
   font-family:  "Noto Sans", Helvetica, sans-serif;
   color: #0c2e48;
+  text-align: justify;
 }
+
 
 .hero {
   display: block;
@@ -56,6 +58,14 @@ hr {
   width:30%;
   text-align:center;
   color: #0c2e48;
+}
+
+ul {
+  line-height: 2rem;
+}
+
+li {
+  margin: 0 2rem;
 }
 
 .caption {
