@@ -13,8 +13,8 @@
   <script src="https://unpkg.com/intersection-observer"></script>
 <script src="https://unpkg.com/scrollama"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-
 
 
 
@@ -29,69 +29,47 @@
   <h3 > A <span>data-driven investigation</span> on whether or not <span>housing costs at Minerva </span>are worth it. <br> Is it possible for students to <span>pay less</span> and <span> live better</span>?</h3>
 
 
-  <p style="text-align: center;margin: 2rem 0 0 0">a data viz by Quest Reporters! </p>
+  <p style="text-align: center;margin: 2rem 0 0 0">a data viz by jasen lo </p>
   <p style="text-align: center;margin: 0 0 0 0"> Published: 10/10/2020 </p>
-  <hr>
 
   <section style="margin: 3rem 15rem">
 
     <h3 style="text-align: justify; font-style: italic; margin: 0rem 2rem;">
-    tldr: Using Airbnb listings as a proxy for the availability and cost of independent housing in all of the rotation cities, the Quest found an abundance of Airbnb listings, with the exception of San Francisco, that are cheaper than living in Minerva housing. However, unseen potential costs associated with living in independent housing include social estrangement from fellow classmates, risks and shortcomings of arranging housing independently, and mandatory loss of work study income. Regardless, this investigation finds that given the current Minerva residential fees and policies, as well as the potential cost-saving benefits of living independently, a student in the right circumstances could consider doing so. This analysis raises additional questions about whether the work-policy forcing lower-income students to live in the residence hall, especially given how students do not always earn the maximum amount of work-study income.
+      tldr: Strictly from a financial perspective, Minerva housing is worth it for students who receive more than $6,000 in financial aid per year, regardless of the cost of independent housing. Using Airbnb as a proxy for the availability and cost of independent housing in Minerva rotation cities, the Quest found plenty of housing options cheaper than Minerva, with the exception of San Francisco. Reviewing Minerva's policies regarding financial aid and independent housing reveals that opting out to live independently is only financially viable for students who receive less than $6,000 in financial aid annually. The less a student receives in financial aid, the more they are able to use independent housing as a means to save housing cost. This analysis neglects other reasons a student might want to stay in Minerva housing, such as the sense of community, etc., and makes assumptions that are open to scrutiny in the process of arriving at the dataset used in this analysis.
     </h3>
+    <br> 
+    <hr>
 
-    <br> <br>
+    <br>
 
 
     <p>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An <a href="https://www.mastersportal.com/articles/1629/student-living-costs-in-the-usa-budgeting-for-an-international-degree-in-2020.html">article</a> published last month provided average annual room and board estimates at <span>$9,800 at public four-year colleges </span> and <span>$11,100 at private four-year colleges</span>. The article's author did not cite their sources or their estimation methodology, so these estimates are to believed with some degree of reservation. Still, it seems that Minerva's residential service cost of $11,000 are right about the average for a private four-year undergraduate program. However, Minerva's residential service cost pays for much more than just accommodations. According to Minerva's Student Services Global Director Marianna Panossi, the residential services fee is inclusive of services such as "technology, facilities for outside events, and importantly most on-ground staff who serve the needs of all students, helping them to access local health care/insurance, supporting wellness, assisting with local visas and residential permits, emergencies." 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An <a href="https://www.mastersportal.com/articles/1629/student-living-costs-in-the-usa-budgeting-for-an-international-degree-in-2020.html">article</a> published recently provided average annual room and board estimates at <span>$9,800 at public four-year colleges </span> and <span>$11,100 at private four-year colleges</span>. The article's author did not cite their sources or their estimation methodology, so these estimates are to believed with some degree of reservation. Still, it seems that Minerva's residential service cost of $11,000 are right about the average for a private four-year undergraduate program. However, Minerva's residential service cost pays for much more than just accommodations. According to Minerva's Student Services Global Director Marianna Panossi, the residential services fee is inclusive of services such as "technology, facilities for outside events, and importantly most on-ground staff who serve the needs of all students, helping them to access local health care/insurance, supporting wellness, assisting with local visas and residential permits, emergencies." 
     </p>
 
     <img class = "banner" src="assets/costs.png" alt="cost">
     <p class = "caption">The estimated cost of attending Minerva per academic year in 2020/21. Note the 'residential services' cost of $11,000.</p>
 
     <p>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thus, the true cost of housing at Minerva exclusive of other services, can be derived by subtracting the 'Independent Housing Fees' of $5,000 ($2,500 per semester) from the annual residential cost of $11,000. <span>This amount comes up to $6,000 per academic year, which compares favourably to housing costs at a typical four-year undergraduate program in the United States.</span> Minerva's <a href="https://www.minerva.kgi.edu/tuition-aid/tuition-fees/" target="_blank">committment</a> to "reducing the cost to attend a top-tier university program" is one major factor why students have decided to enroll at Minerva. However, is it fair to compare the housing costs at Minerva to American undergraduate programs given how Minervans only reside in the United States for one year? 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thus, the true cost of rent at Minerva exclusive of other services, can be derived by subtracting the 'Independent Housing Fees' of $5,000 ($2,500 per semester) from the annual residential cost of $11,000. <span>This amount comes up to $6,000 per academic year or $750 per month, which compares favourably to housing costs at a typical four-year undergraduate program in the United States.</span> Minerva's <a href="https://www.minerva.kgi.edu/tuition-aid/tuition-fees/" target="_blank">committment</a> to "reducing the cost to attend a top-tier university program" is one major factor why students have decided to enroll at Minerva. However, is it fair to compare the housing costs at Minerva to American undergraduate programs given how Minervans only reside in the United States for one year? 
    </p>
 
-    <p>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M21 student Tessa Owens published an <a href="https://www.minervaquest.com/2020/04/09/how-i-saved-money-at-minerva-despite-having-0-financial-aid/">article</a> on how she saved money at Minerva without financial aid in <span style="font-style: italic;"> The Minerva Quest</span> recently. Owens listed living "in independent housing in Seoul & Buenos Aires" as one of the ways she managed to save money. <span>In those cities, she found housing through AirBnb and saved about $300 each semester, amounting to approximately $75 per month.</span> Owen's experience with saving money through renting with Airbnb begs the question: could students viably take advantage of cheaper accommodations rates in Minerva rotation cities? Owen's experience suggests that Buenos Aires and Seoul are candidate cities where independent housing is generally cheaper compared to Minerva housing. But how much cheaper? And what do the housing conditions look like in these accommodations? And what about the other cities on the global rotation? 
-    </p>
-    
-    <br>
-    <hr>
+   <br>
+   <h2 style="margin: 0 -5rem; text-align: center;">Annual Residential Services - Annual Independent Housing Fee = Annual Just Rent at Minerva</h2><br>
+   <h2 style="margin: 0 -5rem; text-align: center;">Annual Just Rent at Minerva = $11,000 - $5,000 = $6,000</h2><br>
+   <h2 style="margin: 0 -5rem; text-align: center;">Monthly Just Rent at Minerva = $6,000 / 8 Months = $750</h2>
+   <br>
+   <hr>
 
-    <h3>Methodology</h3>
-    <br>
-    <br>
-
-    <img class = "banner" src="assets/search.gif" alt="scraping airbnb">
-    <p class = "caption">This GIF shows the search parameters used by the Quest to scrape Airbnb.</p>
+ 
 
     <p>
-    <span style="font-style: italic;">The Minerva Quest </span> scraped Airbnb listings in San Francisco, Seoul, Hyderabad, Berlin, Buenos Aires, London and Taipei. <span style="font-style: italic;">The Quest</span> makes several assumptions, that are open to scrutiny, for the purposes of arriving at the data that informs this investigation. Thus, the search parameters used on Airbnb and thier accompanying justifications are as follows:<br>
-
-    <ul>
-      <li><span>The listing was available between Jan 1st - April 30th 2021.</span></li>
-        <ul><li>This date range simulates a potential student looking for independent housing over an entire semester time frame.</li></ul><br>
-      <li><span>The listing cost below $3000 USD per month.</span></li>
-        <ul><li>This date range simulates a potential student looking for independent housing over an entire semester time frame.</li></ul><br>
-      <li><span>The listing is equipped with wifi and a kitchen space.</span></li>
-        <ul><li>Self-explanatory? <span style="font-style: italic;">The Quest</span> also assumes that students would like to have internet and food security in their residency at the bare minimum.</li></ul><br>
-      <li><span>The listing has at least one bed.</span></li>
-        <ul><li><span style="font-style: italic;">The Quest</span>  assumes that students would rather not sleep on a couch the entire semester. Additionally, the listing price is divided by the number of beds in the listing to find the price per person of that listing, since a potential group of students could share a flat and split the costs.</li></ul><br>
-      <li><span>Searched the entire city without setting neighbourhood/geographic limitations</span></li>
-        <ul><li><span style="font-style: italic;">The Quest</span> neglected to use neighbourhood search parameters since previous and future cohorts of Minerva students have stayed in different neighbourhoods in the same city. An outcome of this assumption is that there are listings recorded in the data such as those in Berkeley and Emeryville, that are further from the city than intended. However, this concern is balanced by how students determined to save cost might decide to stay in these outlying areas.</li></ul><br>
-    </ul>
-
-
-    
-    
-
-
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M21 student Tessa Owens published an <a href="https://www.minervaquest.com/2020/04/09/how-i-saved-money-at-minerva-despite-having-0-financial-aid/">article</a> on how she saved money at Minerva without financial aid in <span style="font-style: italic;"> The Quest</span>, listing living "in independent housing in Seoul & Buenos Aires" as one of the ways she managed to save money. <span>In those cities, she found housing through Airbnb and saved about $300 each semester, amounting to approximately $75 per month.</span> Minerva charges the same fees for housing in all locations instead of having fees fluctuate each semester based on specific city costs. According to Teri Cannon, Minerva's Chief Policy and Accreditation Officer, this policy was decided such that it would be easier for students and Minerva to anticipate future location-based costs. This policy, however, also opens an avenue for students to viably take advantage of cheaper accommodations rates in certain rotation cities. Owen's experience suggests that Buenos Aires and Seoul are candidate cities where independent housing is generally cheaper compared to Minerva housing. But how much cheaper? What do the housing conditions look like in these accommodations? What about the other cities on the global rotation? 
     </p>
-
-
   
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To answer these questions, <span style="font-style: italic;"> The Quest</span> scraped Airbnb listings in San Francisco, Seoul, Hyderabad, Berlin, Buenos Aires, London and Taipei. These listings serve as a proxy, albeit an imperfect one, for independent housing options in Minerva rotation cities. Using these listings as a basis of comparison against the cost of Minerva housing, <span style="font-style: italic;"> The Quest</span> investigates which cities have cheaper alternative housing accommodations and estimates the quantity and quality of these options relative to each other and Minerva residential services. Overall, <span style="font-style: italic;"> The Quest</span> scraped a dataset of ...... number of Airbnb listings across the seven rotation cities, with the complete methodology described at the bottom of this article open for further examination. <span> Recall that the true renting cost of Minerva housing is $750 a month.</span> Curious about how this figure stacks up against Airbnb alternatives? Scroll down!
+    </p>
+
   </section>
   <main>
     <!--  graphic container  -->
@@ -109,11 +87,11 @@
         <br>
         <img class = 'step-img'src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="san francisco">
         <h4>San Francisco</h4>
-        <span>This is the distribution of the Airbnb listings that were found in San Francisco using the web scraping methodology described above. Hover over each bar to investigate individual histogram bins! 
+        <span>This is the distribution of the Airbnb listings that were found in San Francisco. Hover over each bar to investigate individual histogram bins!
         </span>
         <br><br><br>
 
-        <span>Scroll down to see how the price of Minerva's housing in San Francisco compares to the Airbnb listings in the city!
+        <span>Scroll down slowly to see how the price of Minerva's housing in San Francisco compares to the Airbnb listings in the city.
         </span>
         
       </div>
@@ -127,7 +105,7 @@
         <br>
         <br>
         <br>
-        <span>San Francisco sure is expensive. This should really come to no surprise to anyone who has witnessed the consequences of San Francisco's extreme housing costs. Living in Minerva's residence hall would most definately save students lots of moneys compared to living independently in San Francisco, provided there are spots in the residence available.
+        <span>San Francisco sure is expensive. This should really come to no surprise to anyone who has witnessed the consequences of San Francisco's extreme housing costs. Living in Minerva's residence hall would most definitely save students lots of moneys compared to living independently in San Francisco, provided there are spots in the residence available.
         </span>
         <br>
         <br>
@@ -144,13 +122,13 @@
         <img class = 'step-img'src="assets/seoul.jpg" alt="seoul">
         <h4>Seoul</h4>
         <span>
-        The distribution of listing costs match up with Owens' reported experience with saving $75/month in Seoul living in independent housing. 
+          The distribution of listing costs match up with Owens' reported experience with saving $75 per month in Seoul living in independent housing.
         </span>
         <br>
         <br>
         <br>
         <span>
-        There are 140 Seoul listings that cost between $200 to $600/month, which suggests that students in the same position as Owens could seriously look into living independently in Seoul.
+          Majority of Seoul's listings cost between $200 to $600 per month, which suggests that students in the same position as Owens could seriously look into living independently in Seoul.
         </span>
         <br>
         <br>
@@ -161,7 +139,7 @@
         <img class = 'step-img'src="https://images.unsplash.com/photo-1470075446540-4391a96ec621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="Hyderabad">
         <h4>Hyderabad</h4>
         <span>
-          Small(er) sample warning! Hyderabad has only 126 listings found, half as many listings as the other cities do. There are fewer hosts in Hyderabad, raising a potential downside of arranging housing by oneself: few options might lead to bad housing experiences and unreliable hosts. 
+          Small(er) sample warning! Hyderabad has only half as many listings as the other cities do. There are fewer hosts in Hyderabad, raising a potential downside of arranging housing by oneself: few options might lead to bad housing experiences and unreliable hosts.
           </span>
           <br>
           <br>
@@ -178,14 +156,8 @@
       <div class='step'>
         <img class = 'step-img'src="https://images.unsplash.com/photo-1552553302-9211bf7f7053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="Berlin">
         <h4>Berlin</h4>
-        <span>
-          Note the shifting x-axis. The seemingly small distance between the median and Minerva cost lines denote a $200/month difference.
-          </span>
-          <br>
-          <br>
-          <br>
           <span>
-          As opposed to Seoul and Hyderabad, Minerva housing is relatively more affordable than most of the listings in Berlin, assuming that Berlinovo feels generous enough not to charge you the $800/semester difference in mysterious damages.
+            As opposed to Seoul and Hyderabad, Minerva housing is relatively more affordable than most of the listings in Berlin. Many students in previous years were <a href="https://www.minervaquest.com/2020/10/04/transparency-and-communication-in-minervas-financial-aid-process/">charged</a> fees by property management group Berlinovo for damage to their apartments. Some fees were over $130 for some students, with many feeling that they were unfairly charged for damages. This visualisation is not inclusive of said property damage costs.
           </span>
           <br>
           <br>
@@ -214,7 +186,7 @@
         <img class = 'step-img'src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="London">
         <h4>London</h4>
         <span>
-          London's distribution is not unlike that of Berlin, except with a narrow peak listings concentrated around $800 - $1000/month. As a result, the proportion of listings that were found in London that are cheaper than Minerva housing is only 21%.
+          Note the shifting x-axis. The seemingly small distance between the median and Minerva cost lines denote a $200/month difference. London's distribution is not unlike that of Berlin, except with a narrow peak listings concentrated around $800 - $1000/month.
           </span>
           <br>
           <br>
@@ -225,47 +197,196 @@
             <br>
             <br>
             <br>
+            <br>
           <hr>
       </div>
+      <br>
+      <br>
+       <br>
+
       <div class='step'>
         <img class = 'step-img'src="https://hub.minerva.kgi.edu/wp-content/uploads/2019/06/thomas-tucker-116179-unsplash_Easy-Resize.com_.jpg" alt="taipei">
         <h4>Taipei</h4>
         <span>
           Even though the majority of Airbnb listings found in Taipei cost less than Minerva's housing option, it must be noted that at the time of writing, Minerva students are not allowed to live independently in Taipei due to coronavirus transmission mitigation. 
           </span>
-          <br>
-          <br>
-          <br>
-          <span>
-            Rent prices have plummeted due to the the ongoing pandemic and associated restrictions to travel or tourism. With the current policy, students are not be able to take advantage of reduced rent prices. 
-          </span>
-            <br>
-            <br>
-            <br>
-          <hr>
+
       </div>
     </article>
 
 
   </section>
+  <hr>
 
   <section style="margin: 3rem 15rem ;">
+    <h3>Financial Aid Though?</h3>
+    <br>
     
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An additional caveat to this line of questioning is that Minerva's financial policy dictates that students on work-study would lose their financial aid should they choose to live outside of the residence hall. As such, only students who are not on work-study have the choice between independent housing and Minerva's residence hall. However, if there are cities with housing that is much more affordable than the housing offered by Minerva, is there a point to which a student could viably forfeit their work-study in certain cities should the opportunity arise?
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The data visualisation above establish that there are plenty of housing options that are much cheaper than Minerva housing in all of the rotation cities aside from San Francisco. From a financial perspective, why do students continue to stay at Minerva housing, instead of opting out of Minerva housing like Owens did in Seoul and Buenos Aires, and try to save a few (or many) bucks?
+    </p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A significant reason is financial aid. Around 80% of Minerva students receive some form of financial aid and 50% have financial aid packages of $25,000 per year. If a student on financial aid decides to opt out of Minerva's residential services, they effectively lose the housing portion of their financial aid package since only costs for living in Minerva-provided housing are eligible for financial aid. Teri Cannon stated to The Quest that this policy is guided by Minerva's belief that "students who choose to live outside Minerva housing are not having the full Minerva community experience... and on principle Minerva is not obligated to subsidise this choice with financial aid."
+    </p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The table below illustrates a decision table of the per semester housing cost owed to Minerva if a student decides to opt-in or out-out of Minerva housing depending on their financial aid situation, and the potential rent that a student would then use to pay for independent housing. If a student finds independent housing at a lower cost than the potential rent, then they would be able to pocket that difference as money saved. Note that the housing cost owed to Minerva if a student opts out is consistent at the independent housing fee of $5000 per annum.
+    </p><br>
+    
+    <br>
+    <table style="width: 100%;">
+      <thead>
+          <tr>
+              <th>Annual Financial Aid</th>
+              <th>$20,000</th>
+              <th>$10,000</th>
+              <th>$6,000</th>
+              <th>$0</th>
+
+          </tr>
+      </thead>
+      <tr height="10"><td></td></tr> 
+
+      <tbody>
+          <tr>
+              <td class="leftHeader" style="font-weight: bold;">Housing Cost Owed to Minerva if Opt-In</td>
+              <td>$0</td>
+              <td>$1,000</td>
+              <td>$5,000</td>
+              <td>$11,000</td>
+          </tr>
+          <tr>
+              <td class="leftHeader" style="font-weight: bold;">Housing Cost Owed to Minerva if Opt-Out</td>
+              <td>$5,000</td>
+              <td>$5,000</td>
+              <td>$5,000</td>
+              <td>$5,000</td>
+          </tr>
+          <tr height="10"><td></td></tr> 
+          <tr>
+            <td class="leftHeader" style="font-weight: bold;">Independent Housing Rent + Potential Money Saved</td>
+            <td>-$5,000</td>
+            <td>-$4,000</td>
+            <td>$0</td>
+            <td>$6,000</td>
+        </tr>
+      </tbody>
+  </table>
+    <br>  
+    <hr>
+    <p class = "caption">Table detailing the housing cost owed to Minerva depending on a student's financial aid level and their decision to opt-in or out of Minerva housing. Note that negative values signify that it is impossible to save any money if a student chooses to opt out.</p><br>  
+
+
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; According to the calculations above, independent housing only becomes a viable alternative to Minerva housing only when a student receives less than $6,000 in financial aid a year. Even then, the student who recieves aprroximately that amount must find independent housing at a impossibly low rate to have any chance at turning a profit. </p>
+
+  <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In order to determine how much potential money a student could save by opting out of Minerva housing, the two unknown variables that affect their decision are their financial aid recieved and the rent cost of independent housing, since the residential services fee and the independent housing fee are constants (for the near future, hopefully). <span style="font-style: italic;"> The Quest</span> used the following equation below to arrive at the numbers above. To illustrate the calculations used to arrive at these numbers, two examples with different financial aid and independent housing rent prices are demonstrated further below. </p><br>
+
+  <br>
+  <h2 style="margin: 0 -5rem; text-align: center;">Residential Services Fee - Independent Housing Fee - Financial Aid  <br>= <br>Independent Housing Rent + Potential Money Saved</h2><br>  <hr>
+  <br>
+  
+
+  <div class="row">
+    <div class="column" style="margin: 0 2.5rem 0 -5rem">
+      <h3 style="margin: 0;">recieves no fin aid </h3>
+      <p>If a student receives no financial aid and manages to snag an independent housing arrangement costing them $250 per month or $2,000 per annum, which seems to be possible in cities such as Buenos Aires, Hyderabad, Seoul and Taipei, then they would save $4000 for that semester on housing cost; illustrating how it is entirely viable for students who are not on financial aid to live independently and save housing costs. Note that the numbers reflect annual costs. </p>
+
+      <h2 >$11,000 - $5,000 - $0 = $2,000 + Potential Money Saved</h2>
+      <h2 ><br> Potential Money Saved = $4,000</h2><br>
+
+    </div>
+    <div class="column" style="margin: 0 -5rem 0 2.5rem;
+    ">
+    <h3 style="margin: 0;">$10,000 fin aid per annum</h3>
+      <p>If a student recieves $10,000 in financial aid per annum, then <span>they would only break even if the property owner of their independent housing somehow gives the student $500 per month or $4000 over the course of the year for renting their property.</span> This unrealistic prospect depicts how it is impossible for financial aid students to live independently under the current policies that govern financial aid and housing. Note that the numbers reflect annual costs.</p>
+
+      <h2 >$11,000 - $10,000 - $10,000 = -$4,000 + Potential Money Saved</h2>
+    
+      <h2 ><br> Potential Money Saved = $0, <br>but only with negative rent of $4,000?</h2><br>
+    </div>
+  </div>
+
+  <hr>
+  <h3>Hold Up. Way Too Much Math.</h3>
+  <br>
+
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If the calculations above are confusing and non-intuitive, the following visualisation which utilises the scraped Airbnb dataset might prove useful. Scrolling varies the financial aid amount a hypothetical student receives. Notice how it is impossible for a student who receives more than $6,000 a year or $3,000 a semester in financial aid to live for cheaper in any of the independent housing options, even those that cost less than $100 per month, because giving up their financial aid just isn't worth it. However, as the financial aid amount reduces, the student is increasingly incentivised to opt-out as there are more listings that the student could live in and potential save money. Note that this visualisation only depicts the situation of a student deciding between Minerva housing and independent housing within the global rotation, the calculations involving remote study scenarios differ.  </p>
+
+</section>
+
+  <section id="scrolly2">
+    <figure>
+    <h3 style="margin: 1rem 1rem;" id="figure_caption">This viz shows the independent housing options found on Airbnb that make financial sense to those receiving fin aid under $6,000 per year or $3,000 per semester. Scroll to vary the fin aid amount... <br><br> If you receive $ <span>...</span> in fin aid per semester, you would save money by living independently in listings (left of the <span style="color: orange;"> orange line</span>) that cost below $ <span>...</span>. Mouse over any listing, represented by the circles, to find out why and how much!</h3>
+    <h3 style="margin: 1rem 1rem; text-align: center; display: none;" id="mouseover_figure_caption"></h3>
+    <h3 style="margin: 1rem 1rem; text-align: center; display: none;" id="mouseover_figure_caption1"></h3>
+    </figure>
+
+    <article>
+      <div class="step2">
+      </div>
+      <div class="step2">
+      </div>
+    </article>
+  </section>
+  <section style="margin: 3rem 15rem ;">
+    
+    <hr>
+    <h3>Conclusions, Context & Concerns</h3>
+    <br>
+  
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To recap, this investigation concludes that Minerva housing is worth it for students who receive more than $6,000 in financial aid per year, and becomes increasingly less worth it as a student's financial aid amount decreases. This 'worth-it-ness' was empirically proven by comparing the cost of Minerva housing versus the alternative housing options available as Airbnb listings in Minerva rotation cities. </p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, the author must reiterate that this conclusion is purely drawn from a financial perspective. There are plenty of reasons why a student might want to stay in Minerva housing even if they are paying slightly more than the market rate. Some reasons include:
     </p>
 
-  </section>
+    <ul>
+      <li><span></span>Being immersed in the residential Minerva community and being geographically close to classmates who reside in the residence hall.</span></li><br>
+      <li><span></span>Having immediate access to Minerva residential staff and their offices, which are usually located within or nearby Minerva residential halls.</span></li><br>
+      <li><span></span>Not having to worry about arranging housing independently, especially in rotation cities where the student does not speak the local language.</span></li><br>
+      <li><span></span>Not having to stress about dealing with potentially shifty or troublesome Airbnb hosts.</span></li><br>
+      <li><span></span>Not having to deal with the potential loss of work study income that some students have reportedly faced when they decided to opt out of Minerva housing or study remotely.</span></li><br>
+    </ul>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>This investigation also raises several important concerns which may negatively affect Minerva students in the near future that Minerva students and staff members may consider in light of the findings of this analysis:</span> 
+    </p>
+    <ol>
+      <li><span></span>A potential concern is that housing prices could rise for financial aid students who have little choice but to live in Minerva housing should more non-financial students live independently. There have been extensive discussion on internal Facebook groups amongst Minerva students regarding the perceived unjustified costs of housing. Discussion revolve around the inconsistent quality of Minerva's residential services across rotation cities and unfair property damage charges reveal a growing attitude that living independently maybe preferable, especially for those who are not on financial aid. The loss of housing revenues for Minerva might prompt higher rent prices for all students, which would disproportionately affect students on financial-aid. </span></li><br>
+      <li><span></span>Another concern is that the absence of more students from the Minerva residence hall may negatively affect the residential experience that Minerva has constructed and at worst, might cause a experiential divide between students who receive financial aid and students who do not.  </span></li><br>
+      <li><span></span>Lastly, Minerva's residential program is integral to Minerva's legal status as an U.S undergraduate program and the ability of students to continue receiving F1 visas. An ex-ASM representative noted that students are encouraged to stay in the residence hall because of this reason. the absence of students from Minerva housing might jeopardise Minerva's legal status as an U.S educational institution or students' F1 visa status.</span></li><br>
+    </ol>
 
 
 
-  <svg id = "scatter"></svg>
 
 
+  <hr>
 
+  <h3>Methodology</h3>
+  <br>
+  <br>
+
+  <img class = "banner" src="assets/search.gif" alt="scraping airbnb">
+  <p class = "caption">This GIF shows the search parameters used by <span style="font-style: italic;">The Quest </span>  to scrape Airbnb.</p>
+
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <span style="font-style: italic;">The Quest </span> scraped Airbnb listings in San Francisco, Seoul, Hyderabad, Berlin, Buenos Aires, London, and Taipei on the <span>4th of October, 2020</span>. The author made several assumptions for the purposes of arriving at the data that informs this investigation. One major assumption is ignoring the effect of the pandemic on Airbnb prices, since this effect is difficult to quantify or control for. Another assumption would be the debatable premise that Airbnb is a reliable proxy for alternative housing options. The other assumptions made are implicit in the search parameters used on Airbnb. These assumptions and their accompanying justifications are as follows:<br> </p>
+
+  <ul>
+    <li><span>The listing was available between Jan 1st - April 30th 2021.</span></li>
+      <ul><li>This date range simulates a potential student looking for independent housing over an entire semester time frame.</li></ul><br>
+    <li><span>The listing cost below $3000 USD per month.</span></li>
+      <ul><li><span style="font-style: italic;">The Quest</span> assumes that students probably aren't going to spend onwards of $3000 on rent per person. This assumption has the additional benefit of weeding out luxury listings that skew the data to be more expensive. </li></ul><br>
+    <li><span>The listing is equipped with wifi and a kitchen space.</span></li>
+      <ul><li>Self-explanatory? <span style="font-style: italic;">The Quest</span> also assumes that students would like to have internet and food security in their residency at the bare minimum.</li></ul><br>
+    <li><span>The listing has at least one bed.</span></li>
+      <ul><li><span style="font-style: italic;">The Quest</span>  assumes that students would rather not sleep on a couch the entire semester. Additionally, the listing price is divided by the number of beds in the listing to find the price per person of that listing, since a potential group of students could share a flat and split the costs.</li></ul><br>
+    <li><span>Searched the entire city without setting neighbourhood/geographic limitations</span></li>
+      <ul><li><span style="font-style: italic;">The Quest</span> neglected to use neighbourhood search parameters since previous and future cohorts of Minerva students have stayed in different neighbourhoods in the same city. An outcome of this assumption is that there are listings recorded in the data such as those in Berkeley and Emeryville, that are further from the city than intended. However, this concern is balanced by how students determined to save cost might decide to stay in these outlying areas.</li></ul>
+  </ul>
+ 
+</section>
 </main>
 
-<script type="text/javascript" src="scatter.js"></script>
 <script type="text/javascript" src="scroller.js"></script>
+<script type="text/javascript" src="scatter.js"></script>
+
+
 </body>
 
 

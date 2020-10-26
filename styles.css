@@ -29,6 +29,8 @@ h1 {
 
 h2 {
   color: black;
+  font-size: 1rem;
+  text-align: center;
 }
 
 h3 {
@@ -57,7 +59,7 @@ p {
 hr {
   width:30%;
   text-align:center;
-  color: #0c2e48;
+  border-top: 1px solid orange;
 }
 
 ul {
@@ -68,11 +70,16 @@ li {
   margin: 0 2rem;
 }
 
+ol li{
+  line-height: 2rem;
+}
+
 .caption {
   color: #0c2e48;
   font-weight: 400;
   font-size: 0.8rem;
   text-align: right;
+  line-height: 1rem;
 }
 
 #scrolly {
@@ -161,16 +168,16 @@ figure p {
 }
 
 
-#scatter .tick line {
+#scrolly2 figure svg .tick line {
   stroke: #C0C0BB;
 }
-#scatter .tick text {
+#scrolly2 figure svg .tick text {
   font-size: 15pt;
 }
-#scatter .axis-label {
+#scrolly2 figure svg .axis-label {
   font-size: 20pt;
 }
-#scatter .domain {
+#scrolly2 figure svg .domain {
   display: none;
 }
 
@@ -187,19 +194,70 @@ figure p {
   z-index: 300;
   visibility: hidden;}
 
-  .scatter-image-preview {
+.scatter-image-preview {
     background: #0c2e48;
     border-radius: .5rem;
     color: white;
     display: block;
     font-size: 20px;
-
     padding: 1rem 1rem;
     position: absolute;
-    z-index: 300;
+    z-index: 200;
     visibility: hidden;
   }
 
   .scatter-image-preview img{
     max-height: 200px;
     }
+
+
+#scrolly2 {
+      position: relative;
+      padding: 1rem;
+    }
+
+#scrolly2 article {
+      position: relative;
+    }
+
+#scrolly2 figure {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      z-index: 10;
+    }
+
+
+#scrolly2 .step {
+      margin: 0 auto 2rem auto;
+      color: #fff;
+    }
+
+
+#scrolly2 .step.is-active p {
+      background-color: goldenrod;
+    }
+
+#scrolly2 .step p {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      background-color: #3b3b3b;
+    }
+
+#scrolly2 figure p {
+  margin: 13rem 0.1rem 0rem 0.1rem;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}

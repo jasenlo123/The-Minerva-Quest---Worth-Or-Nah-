@@ -5,7 +5,7 @@ width = window.innerWidth*0.7 - margin.left - margin.right,
 height = window.innerHeight - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("figure")
+var hist = d3.select("#scrolly").select("figure")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -42,26 +42,26 @@ d3.csv("prices_data.csv", function(data) {
   //axis labels
   function initiateAxisLabels () {
       //y-axis
-      svg.append("text")
+      hist.append("text")
           .attr("class","axis-label")
           .text("number of")
           .attr("x", -30)
           .attr("y", -30)
-      svg.append("text")
+      hist.append("text")
           .attr("class","axis-label")
           .text("listings")
           .attr("x", -30)
           .attr("y", -15)
 
       //x-axis
-      svg.append("text")
+      hist.append("text")
           .attr("class","axis-label")
-          .text("rent/month")
+          .text("listing monthly")
           .attr("x", width-100)
           .attr("y", height+40)
-      svg.append("text")
+      hist.append("text")
           .attr("class","axis-label")
-          .text("(in usd)")
+          .text("rent (usd)")
           .attr("x", width-100)
           .attr("y", height+55)
 
@@ -75,7 +75,7 @@ d3.csv("prices_data.csv", function(data) {
       .domain([0, max]) 
       .range([0, width]);
     // X axis: draw:
-    svg.append("g")
+    hist.append("g")
     .attr("id", "x-axis")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
@@ -85,7 +85,7 @@ d3.csv("prices_data.csv", function(data) {
       .range([height, 0]);
     y.domain([0, histHeight ]);   
     // Y axis: draw:
-    svg.append("g")
+    hist.append("g")
       .call(d3.axisLeft(y)); 
 
   // Get a subset of the data based on the group
@@ -112,7 +112,7 @@ d3.csv("prices_data.csv", function(data) {
 
 
     // append the bar rectangles to the svg element
-    svg.selectAll("rect")
+    hist.selectAll("rect")
         .data(bins)
         .enter()
         .append("rect")
@@ -130,7 +130,7 @@ d3.csv("prices_data.csv", function(data) {
 
     // select all rect to initiate tooltip!
     function initiateToolTip () {
-        d3.selectAll("rect")
+        d3.select('figure').selectAll("rect")
         .on("mouseover", function(d) {
           // change the selection style
           d3.select(this)
@@ -182,7 +182,7 @@ d3.csv("prices_data.csv", function(data) {
 
     var bins = histogram(data);
 
-    svg.selectAll("rect")
+    hist.selectAll("rect")
         .data(bins)
         .exit()
         .remove();
@@ -191,8 +191,8 @@ d3.csv("prices_data.csv", function(data) {
   }
   function updatePoints(data) {
     // remove previous line
-       svg.selectAll("line").remove();
-      svg.selectAll(".scroller_anno").remove();
+      hist.selectAll("line").remove();
+      hist.selectAll(".scroller_anno").remove();
 
 
     var max = d3.max(data, function(d) { return +d.price })+ 200
@@ -212,7 +212,7 @@ d3.csv("prices_data.csv", function(data) {
     var bins = histogram(data);
 
 
-    svg.selectAll("rect")
+    hist.selectAll("rect")
         .data(bins)
         .transition()
         .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
@@ -225,33 +225,33 @@ d3.csv("prices_data.csv", function(data) {
 
       d3.selectAll(".minerva-chart-label")
           .style("visibility", "hidden");
-        d3.selectAll(".median-chart-label")
+      d3.selectAll(".median-chart-label")
           .style("visibility", "hidden");
 
     
  
  
     function drawLineMedian (value, colour) {
-        svg.append("text")
+        hist.append("text")
             .attr("class","median-chart-label")
             .text("median")
             .attr("x", x(value)-20)
             .attr("y", height+50)
             .style('fill', 'black')
-        svg.append("text")
+        hist.append("text")
             .attr("class","median-chart-label")
             .text("airbnb")
             .attr("x",x(value)-20)
             .attr("y", height+80)
             .style('fill', 'black')
-        svg.append("text")
+        hist.append("text")
             .attr("class","median-chart-label")
             .text("listing")
             .attr("x",x(value)-20)
             .attr("y", height+110)
             .style('fill', 'black')
 
-          svg.append("line")
+        hist.append("line")
           .attr("x1", x(value) )
           .attr("x2", x(value) )
           .attr("y1", y(0))
@@ -265,7 +265,7 @@ d3.csv("prices_data.csv", function(data) {
            .attr("y1", y(0))
            .attr("y2", y(histHeight))
         
-        svg.append("text")
+        hist.append("text")
            .attr("class","line-label")
            .text(`$${value}`)
            .attr("x", x(value)-20)
@@ -274,7 +274,7 @@ d3.csv("prices_data.csv", function(data) {
            
       }
     function drawLineMinerva (value, colour) {
-         svg.append("line")
+      hist.append("line")
             .attr("stroke", colour)
             .attr("stroke-width", "3") 
             .attr("x1", x(value) )
@@ -288,20 +288,20 @@ d3.csv("prices_data.csv", function(data) {
             .attr("y1", y(0))
             .attr("y2", y(histHeight))
             ;
-         svg.append("text")
+         hist.append("text")
              .attr("class","minerva-chart-label")
              .text("minerva ")
              .attr("x", x(value)-20)
              .attr("y", height+65)
              .style('fill', 'darkOrange')
-         svg.append("text")
+         hist.append("text")
              .attr("class","minerva-chart-label")
              .text("housing")
              .attr("x", x(value)-20)
              .attr("y", height+95)
              .style('fill', 'darkOrange')
 
-          svg.append("text")
+          hist.append("text")
              .attr("class","line-label")
              .text(`$${value}`)
              .attr("x", x(value)-20)
@@ -322,8 +322,8 @@ d3.csv("prices_data.csv", function(data) {
 
         var cheaper = data.filter(function(cost) { return cost.price < 750; }).length
 
-        svg.append("text")
-        .text(`${cheaper} / ${entries} (${Math.round((cheaper/entries)*100)}%)`)
+        hist.append("text")
+        .text(`${cheaper} / ${entries} (~${Math.round((cheaper/entries)*100)}%)`)
         .attr("class", "scroller_anno")
         .attr("font-weight", 1000)
         .attr("x", width-150)
@@ -331,21 +331,21 @@ d3.csv("prices_data.csv", function(data) {
         .attr("fill", "darkOrange")
 
 
-        svg.append("text")
+        hist.append("text")
         .text(`listings scraped`)
         .attr("class", "scroller_anno")
         .attr("x", width-150)
         .attr("y", height -230)
 
 
-        svg.append("text")
+        hist.append("text")
         .text(`were cheaper `)
         .attr("class", "scroller_anno")
         .attr("x", width-150)
         .attr("y", height -210)
 
 
-        svg.append("text")
+        hist.append("text")
         .text(`than Minerva`)
         .attr("class", "scroller_anno")
         .attr("x", width-150)
