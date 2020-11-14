@@ -286,7 +286,7 @@ d3.csv('full_data.csv', data => {
                 })
 
             figure2.select("#figure_caption")
-                .html(`This viz shows the independent housing options found on Airbnb that make financial sense to those receiving fin aid under $6,000 per year or $3,000 per semester. Scroll to vary the fin aid amount... <br><br> If you receive $ <span>${Math.round((1-response.progress)*3000)}</span> in fin aid per sem, you would save money by living independently in listings (left of the <span style="color: orange;"> orange line</span>) that cost below $ <span>${Math.round(calc((1-response.progress)*3000))}</span>. Mouse over any listing, represented by the circles, to find out why and how much!`)
+                .html(`This viz shows the independent housing options found on Airbnb that make financial sense to those who under $6,000 per year or $3,000 per semester in scholarships. Scroll to vary the scholarship amount... <br><br> If you receive $ <span>${Math.round((1-response.progress)*3000)}</span> in in scholarship per semester, you would save money by living independently in listings (left of the <span style="color: orange;"> orange line</span>) that cost below $ <span>${Math.round(calc((1-response.progress)*3000))}</span>. Mouse over any listing, represented by the circles, to find out why and how much!`)
                 
       
             figure2.select(".moving_line")
