@@ -240,7 +240,7 @@ d3.csv('full_data.csv', data => {
                     figure2.select("#mouseover_figure_caption")
                         .style("display", "block")
                         .html(`
-                        (Residential Fee - Independent Fee - Fin Aid) / 4 months ) - Listing Rent Per Month  = Money Saved! <br> 
+                        (Residential Fee - Independent Fee - Scholarship) / 4 months ) - Listing Rent Per Month  = Money Saved! <br> 
                         ( $ 5500 - $ 2500 - $ ${Math.round((1-response.progress)*3000)} ) / 4 months ) -  $ ${Math.round(d.price)} = Money Saved!<br> <br> 
                         Opting out of Minerva housing for this 
                         <span>${d.roomtype}</span> in
