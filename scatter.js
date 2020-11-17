@@ -189,7 +189,6 @@ d3.csv('full_data.csv', data => {
       function handleMouseEvent0 (response) {
         if (response.index == 0){
 
-             initiateLegend0()
 
             g.selectAll('circle')
               .transition()
