@@ -307,7 +307,7 @@ d3.csv('full_data.csv', data => {
 
             figure2.select("#figure_caption")
                 .html(`<br>
-                For anyone serious about opting out of Minerva housing and curious about what Airbnb options look like, click on each bubble to get to the listing page. <span>The Quest</span> also scraped the ratings from these listings. Use the legend below to note which cities have more listings, and which of these are not too suss given their ratings. <br>
+                For anyone serious about opting out of Minerva housing and curious about what Airbnb options look like, click on each bubble to get to the listing page. <span>The Quest</span> also scraped the ratings from these listings. Use the legend below to note which cities have more listings, and which of these are not too sus given their ratings. <br>
                 <span> Larger Bubbles = More Reviews | Deeper Colour = Better Ratings</span>`)
 
             figure2.selectAll('circle')
