@@ -1,0 +1,22 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scatter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasenlo123/The-Minerva-Quest---Worth-Or-Nah-.git"
+  },
+  "author": "Jasen Lo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasenlo123/The-Minerva-Quest---Worth-Or-Nah-/issues"
+  },
+  "homepage": "https://github.com/jasenlo123/The-Minerva-Quest---Worth-Or-Nah-#readme",
+  "dependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
