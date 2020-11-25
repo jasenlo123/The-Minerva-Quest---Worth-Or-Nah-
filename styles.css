@@ -1,0 +1,263 @@
+body {
+  font-family:  "Noto Sans", Helvetica, sans-serif;
+  color: #0c2e48;
+  text-align: justify;
+}
+
+
+.hero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-width: 30rem;
+}
+
+.banner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  max-width: 40rem;
+}
+
+h1 {
+  text-align: center;
+  margin: 3rem 10rem 0rem 10rem;
+  letter-spacing: 0.2rem;
+}
+
+h2 {
+  color: black;
+  font-size: 1rem;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin: 2rem 14rem 0rem 14rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+}
+
+span {
+  font-weight: 700;
+}
+
+.step span {
+  font-weight: 500;
+}
+
+p {
+  margin: 2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  font-size:1.1rem
+}
+
+hr {
+  width:30%;
+  text-align:center;
+  border-top: 1px solid orange;
+}
+
+ul {
+  line-height: 2rem;
+}
+
+li {
+  margin: 0 2rem;
+}
+
+ol li{
+  line-height: 2rem;
+}
+
+.caption {
+  color: #0c2e48;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-align: right;
+  line-height: 1rem;
+}
+
+#scrolly {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3rem;
+}
+
+#scrolly > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+article {
+  position: relative;
+  padding: 0 1rem;
+  max-width: 20rem;
+}
+
+figure {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 60%;
+  margin: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 0;
+}
+
+figure p {
+  padding: 1rem;
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.step {
+  margin: 0 auto 2rem auto;
+
+}
+
+.step-img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step.is-active {
+  color: #3b3b3b; 
+}
+
+.step h4{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.step p{
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.svg-tooltip {
+  background: darkOrange;
+  border-radius: .8rem;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  max-width: 300px;
+  padding: .2rem .4rem;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: pre;
+  z-index: 300;
+  visibility: hidden;
+}
+
+
+#scrolly2 figure svg .tick line {
+  stroke: #C0C0BB;
+}
+#scrolly2 figure svg .tick text {
+  font-size: 15pt;
+}
+#scrolly2 figure svg .axis-label {
+  font-size: 20pt;
+}
+#scrolly2 figure svg .domain {
+  display: none;
+}
+
+.scatter-svg-tooltip {
+  background: #0c2e48;
+  border-radius: .5rem;
+  color: white;
+  display: block;
+  font-size: 20px;
+  max-width: 500px;
+  padding: 1rem 1rem;
+  position: absolute;
+  white-space: pre-line;
+  z-index: 300;
+  visibility: hidden;}
+
+.scatter-image-preview {
+    background: #0c2e48;
+    border-radius: .5rem;
+    color: white;
+    display: block;
+    font-size: 20px;
+    padding: 1rem 1rem;
+    position: absolute;
+    z-index: 200;
+    visibility: hidden;
+  }
+
+  .scatter-image-preview img{
+    max-height: 200px;
+    }
+
+
+#scrolly2 {
+      position: relative;
+      padding: 1rem;
+    }
+
+#scrolly2 article {
+      position: relative;
+    }
+
+#scrolly2 figure {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      z-index: 10;
+    }
+
+
+#scrolly2 .step {
+      margin: 0 auto 2rem auto;
+      color: #fff;
+    }
+
+
+#scrolly2 .step.is-active p {
+      background-color: goldenrod;
+    }
+
+#scrolly2 .step p {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      background-color: #3b3b3b;
+    }
+
+#scrolly2 figure p {
+  margin: 13rem 0.1rem 0rem 0.1rem;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
