@@ -1,10 +1,10 @@
 {
-  "name": "dev",
+  "name": "airbnb-quest",
   "version": "1.0.0",
   "description": "",
-  "main": "scatter.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -12,10 +12,7 @@
   },
   "author": "Jasen Lo",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jasenlo123/The-Minerva-Quest---Worth-Or-Nah-/issues"
-  },
-  "homepage": "https://github.com/jasenlo123/The-Minerva-Quest---Worth-Or-Nah-#readme",
+  "homepage": "https://jasenlo123.github.io/The-Minerva-Quest---Worth-Or-Nah-",
   "dependencies": {
     "gh-pages": "^3.1.0"
   }
