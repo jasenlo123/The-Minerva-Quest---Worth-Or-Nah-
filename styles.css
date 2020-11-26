@@ -8,6 +8,8 @@ body {
 .hero {
   display: block;
   margin-left: auto;
+  margin-top: 1.5rem;
+  margin-bottom: -1rem;
   margin-right: auto;
   width: 50%;
   max-width: 30rem;
